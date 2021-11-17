@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Log your location
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Log your location</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div id="info">
+    <div [class]="_ng_errorMessage === '' ? 'hidden' : 'visible'">
+      <ion-label>Error: </ion-label>
+      <ion-label id="error">{{_ng_errorMessage}}</ion-label>
+      <br>
+      <br>
+    </div>
+    <ion-label>Logs written: {{_ng_logsWritten}}</ion-label>
+    <br>
+    <br>
+    <ion-label>Latitude: {{_ng_latitude}}</ion-label>
+    <br>
+    <ion-label>Longitude: {{_ng_longitude}}</ion-label>
+    <br>
+    <br>
+    <ion-label>{{_ng_writing}}</ion-label>
+  </div>
+
+  <div id="container">
+    <ion-button [disabled]="_ng_running" (click)="_ng_clickStart()" expand="block">Start</ion-button>
+    <ion-button [disabled]="!_ng_running" (click)="_ng_clickStop()" expand="block">Stop</ion-button>
+  </div>
+</ion-content>
